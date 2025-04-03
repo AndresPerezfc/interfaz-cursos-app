@@ -44,9 +44,6 @@ body {
     height: 100%; /* Ocupa la altura del contenedor padre */
     box-sizing: border-box; /* Padding incluido en el ancho/alto */
 }
-.sidebar-sticky-content {
-    /* Si necesitas que el contenido dentro del sidebar tenga un comportamiento sticky */
-}
 
 .index-sidebar {
     border-right: 1px solid #dee2e6;
@@ -54,8 +51,8 @@ body {
 }
 
 .params-sidebar {
-    border-left: 1px solid #dee2e6;
-    background-color: #f8f9fa; /* Fondo ligeramente gris para parámetros */
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar-heading {
@@ -519,4 +516,107 @@ body {
     border: none;
     border-top: 1px solid #e9ecef; /* Línea separadora */
     margin: 0.4rem 0;
+}
+
+.course-settings-container {
+    position: relative; /* Necesario para posicionar el dropdown */
+}
+
+.course-settings-btn {
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2em;
+    transition: background-color 0.2s ease;
+}
+
+.course-settings-btn:hover,
+.course-settings-btn[aria-expanded="true"] {
+    background-color: #e9ecef;
+}
+
+.course-settings-menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    min-width: 180px;
+    z-index: 1010;
+    display: none; /* Oculto por defecto */
+}
+
+.course-settings-menu.show {
+    display: block;
+}
+
+
+.comments-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.comments-list li {
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 0;
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.comment-date {
+    font-size: 0.8em;
+    color: #6c757d;
+}
+
+.comment-text {
+    margin-top: 0.5rem;
+}
+
+.comments-scrollable .card-content {
+    overflow-y: auto; /* Permitimos el scroll solo en el contenido de los comentarios */
+    height: 100%; /* El contenido de los comentarios ocupa toda la altura disponible */
+}
+
+
+.sidebar-sticky-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#course-params-compact {
+    flex: 1;
+    margin-bottom: 1rem;
+    max-height: 50%;
+    overflow-y: auto;
+}
+
+#course-comments-panel {
+    flex: 1;
+    max-height: 50%;
+    overflow-y: auto;
+}
+
+/* Estilos para organizar los inputs en dos columnas */
+.params-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.params-form .form-group {
+    grid-column: auto;
+}
+
+/* Para que la descripción ocupe ambas columnas */
+.params-form .form-group:nth-child(4) {
+    grid-column: 1 / -1;
 }

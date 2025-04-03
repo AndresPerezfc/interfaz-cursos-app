@@ -10,6 +10,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const addSectionMainBtn = document.getElementById('add-section-main-btn');
     const saveAllBtn = document.getElementById('save-all-changes'); // Asumiendo que existe
 
+    const courseSettingsBtn = document.getElementById('course-settings-btn');
+const courseSettingsMenu = document.getElementById('course-settings-menu');
+
+// Opciones del Menú de Configuración
+const downloadPdfOption = document.getElementById('download-pdf-option');
+const shareCourseOption = document.getElementById('share-course-option');
+const duplicateCourseOption = document.getElementById('duplicate-course-option');
+const deleteCourseOption = document.getElementById('delete-course-option');
+
+// Panel de Comentarios y Revisiones
+const courseCommentsList = document.getElementById('course-comments-list');
+const addCommentBtn = document.getElementById('add-comment-btn');
+
     // Modal Checklist
     const checklistModal = document.getElementById('checklist-modal');
     const showChecklistBtn = document.getElementById('show-checklist-btn');
@@ -17,6 +30,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalCompletionPercentage = document.getElementById('modal-completion-percentage');
     const modalCompletionStatus = document.getElementById('modal-completion-status');
     const modalChecklistItems = document.getElementById('modal-checklist-items');
+
+    // Datos de ejemplo para comentarios (deberías obtenerlos de courseData)
+const courseComments = [
+    { author: 'Usuario1', date: '2023-10-27', text: 'Excelente introducción, pero sugiero añadir más ejemplos prácticos.' },
+    { author: 'Usuario2', date: '2023-10-28', text: 'La sección de objetivos es clara y concisa.' }
+];
+
+// Función para renderizar los comentarios
+function renderComments() {
+    courseCommentsList.innerHTML = ''; // Limpiar la lista de comentarios
+
+    courseComments.forEach(comment => {
+        const commentItem = document.createElement('li');
+        commentItem.innerHTML = `
+            <span class="comment-author">${comment.author}</span>
+            <span class="comment-date">${comment.date}</span>
+            <p class="comment-text">${comment.text}</p>
+        `;
+        courseCommentsList.appendChild(commentItem);
+    });
+}
+
+// Función para añadir un nuevo comentario (puedes usar un modal o un formulario inline)
+function addComment() {
+    const newComment = {
+        author: 'Usuario Actual', // Obtener el usuario actual
+        date: new Date().toISOString().slice(0, 10), // Fecha actual
+        text: prompt('Escribe tu comentario:') // O usar un modal/formulario
+    };
+
+    if (newComment.text) {
+        courseComments.push(newComment);
+        renderComments();
+    }
+}
+
+// Event listener para el botón de añadir comentario
+addCommentBtn.addEventListener('click', addComment);
+
+// Llamar a renderComments al cargar la página
+renderComments();
 
 
     // --- Estado Conceptual (Simulado con un objeto JS) ---
@@ -454,6 +508,46 @@ document.addEventListener('DOMContentLoaded', () => {
         if (userAvatarElement) userAvatarElement.src = loggedInUserAvatar; 
         
     }
+
+    courseSettingsBtn.addEventListener('click', toggleCourseSettingsMenu);
+downloadPdfOption.addEventListener('click', downloadCoursePdf);
+shareCourseOption.addEventListener('click', shareCourse);
+duplicateCourseOption.addEventListener('click', duplicateCourse);
+deleteCourseOption.addEventListener('click', deleteCourse);
+
+   // Funciones para el Menú de Configuración y las Opciones
+function toggleCourseSettingsMenu() {
+    courseSettingsMenu.classList.toggle('show');
+    courseSettingsBtn.setAttribute('aria-expanded', courseSettingsMenu.classList.contains('show'));
+}
+
+function downloadCoursePdf() {
+    // Aquí iría la lógica para generar y descargar el PDF del curso
+    console.log('Descargando PDF del curso...');
+    alert('Funcionalidad "Descargar PDF" no implementada en este ejemplo.');
+    toggleCourseSettingsMenu(); // Cerrar el menú después de la acción
+}
+
+function shareCourse() {
+    // Aquí iría la lógica para compartir el curso
+    console.log('Compartiendo curso...');
+    alert('Funcionalidad "Compartir Curso" no implementada en este ejemplo.');
+    toggleCourseSettingsMenu();
+}
+
+function duplicateCourse() {
+    // Aquí iría la lógica para duplicar el curso
+    console.log('Duplicando curso...');
+    alert('Funcionalidad "Duplicar Curso" no implementada en este ejemplo.');
+    toggleCourseSettingsMenu();
+}
+
+function deleteCourse() {
+    // Aquí iría la lógica para eliminar el curso
+    console.log('Eliminando curso...');
+    alert('Funcionalidad "Eliminar Curso" no implementada en este ejemplo.');
+    toggleCourseSettingsMenu();
+}
 
 
 }); // Fin del DOMContentLoaded

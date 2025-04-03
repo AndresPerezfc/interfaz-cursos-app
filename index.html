@@ -15,6 +15,19 @@
                 <button class="btn btn-primary" id="save-all-changes">
                     <i class="fas fa-save"></i> Guardar Cambios
                 </button>
+                <div class="course-settings-container">
+            <button id="course-settings-btn" class="course-settings-btn">
+                <i class="fas fa-cog"></i> 
+            </button>
+            <div id="course-settings-menu" class="dropdown-menu course-settings-menu" role="menu">
+                <ul>
+                    <li><a href="#" id="download-pdf-option" role="menuitem"><i class="fas fa-file-pdf"></i> Descargar PDF</a></li>
+                    <li><a href="#" id="share-course-option" role="menuitem"><i class="fas fa-share-alt"></i> Compartir</a></li>
+                    <li><a href="#" id="duplicate-course-option" role="menuitem"><i class="fas fa-copy"></i> Duplicar</a></li>
+                    <li><a href="#" id="delete-course-option" role="menuitem"><i class="fas fa-trash-alt"></i> Eliminar</a></li>
+                </ul>
+            </div>
+        </div>
 
                 <div class="user-profile-container">
                     <button id="user-profile-button" class="user-profile-button" aria-haspopup="true" aria-expanded="false">
@@ -64,43 +77,62 @@
             </main>
 
             <aside class="sidebar params-sidebar">
-                 <div class="sidebar-sticky-content">
-                    <h2 class="sidebar-heading">Parámetros del curso</h2>
-                    <form id="course-params-form" class="params-form">
-                        <div class="form-group">
-                            <label for="param-hours">Horas certificadas</label>
-                            <input type="number" id="param-hours" name="hours" value="0" class="input-control">
+                <div class="sidebar-sticky-content">
+                    <div id="course-params-compact" class="editor-card">
+                        <div class="card-header">
+                            <h3 class="card-title">Parámetros del curso</h3>
                         </div>
-                        <div class="form-group">
-                            <label for="param-thumbnail">Imagen de miniatura (URL)</label>
-                            <input type="text" id="param-thumbnail" name="thumbnail" placeholder="https://..." class="input-control">
+                        <div class="card-content">
+                            <form id="course-params-form" class="params-form">
+                                <div class="form-group">
+                                    <label for="param-hours">Horas</label>
+                                    <input type="number" id="param-hours" name="hours" value="0" class="input-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="param-thumbnail">Miniatura</label>
+                                    <input type="text" id="param-thumbnail" name="thumbnail" placeholder="URL" class="input-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="param-cover">Portada</label>
+                                    <input type="text" id="param-cover" name="coverImage" placeholder="URL" class="input-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="param-desc">Descripción</label>
+                                    <textarea id="param-desc" name="description" rows="3" class="textarea-control"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="param-cats">Categorías</label>
+                                    <input type="text" id="param-cats" name="categories" class="input-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="param-status">Estado</label>
+                                    <select id="param-status" name="status" class="select-control">
+                                        <option value="borrador">Borrador</option>
+                                        <option value="revision">En revisión</option>
+                                        <option value="aprobado">Aprobado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="param-author">Autor</label>
+                                    <input type="text" id="param-author" name="author" class="input-control">
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                             <label for="param-cover">Imagen de portada (URL)</label>
-                            <input type="text" id="param-cover" name="coverImage" placeholder="https://..." class="input-control">
+                    </div>
+            
+                    <div id="course-comments-panel" class="editor-card comments-scrollable">
+                        <div class="card-header">
+                            <h3 class="card-title">Comentarios y Revisiones</h3>
+                            <button class="btn btn-outline" id="add-comment-btn">
+                                <i class="fas fa-plus"></i> Añadir Comentario
+                            </button>
                         </div>
-                        <div class="form-group">
-                             <label for="param-desc">Descripción del curso</label>
-                            <textarea id="param-desc" name="description" rows="4" class="textarea-control"></textarea>
+                        <div class="card-content">
+                            <ul id="course-comments-list" class="comments-list">
+                                </ul>
                         </div>
-                         <div class="form-group">
-                            <label for="param-cats">Categorías (separadas por coma)</label>
-                            <input type="text" id="param-cats" name="categories" class="input-control">
-                        </div>
-                        <div class="form-group">
-                            <label for="param-status">Estado</label>
-                            <select id="param-status" name="status" class="select-control">
-                                <option value="borrador">Borrador</option>
-                                <option value="revision">En revisión</option>
-                                <option value="aprobado">Aprobado</option>
-                            </select>
-                        </div>
-                         <div class="form-group">
-                            <label for="param-author">Autor</label>
-                            <input type="text" id="param-author" name="author" class="input-control">
-                        </div>
-                    </form>
-                 </div>
+                    </div>
+                </div>
             </aside>
         </div>
 

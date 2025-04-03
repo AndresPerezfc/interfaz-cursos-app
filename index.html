@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Curso Avanzado</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="course-builder-container">
+        <header class="main-header">
+            <h1>Editor de Curso: <span id="course-title-main">Mi Curso Increíble</span></h1>
+            <div class="header-actions"> <button class="btn btn-secondary">Ver Curso</button>
+                <button class="btn btn-primary" id="save-all-changes">
+                    <i class="fas fa-save"></i> Guardar Cambios
+                </button>
+
+                <div class="user-profile-container">
+                    <button id="user-profile-button" class="user-profile-button" aria-haspopup="true" aria-expanded="false">
+                        <span id="user-name" class="user-name">Nombre Usuario</span>
+                        <img id="user-avatar" src="https://placehold.co/600x400" alt="Foto de perfil" class="user-avatar">
+                        <i class="fas fa-chevron-down dropdown-arrow"></i> </button>
+                    <div id="user-dropdown-menu" class="dropdown-menu" role="menu">
+                        <ul>
+                            <li><a href="#" role="menuitem"><i class="fas fa-user-circle"></i> Mi Perfil</a></li>
+                            <li><a href="#" role="menuitem"><i class="fas fa-cog"></i> Configuración</a></li>
+                            <li><hr></li> {/* Separador opcional */}
+                            <li><a href="#" role="menuitem"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+        </header>
+
+        <div class="main-layout">
+            <aside class="sidebar index-sidebar">
+                <div class="sidebar-sticky-content">
+                    <div class="progress-section">
+                        <div class="progress-header">
+                            <span class="progress-title">Progreso del curso</span>
+                            <span class="progress-percentage" id="completion-percentage">0%</span>
+                        </div>
+                        <button class="btn btn-outline btn-full-width" id="show-checklist-btn">
+                            <i class="fas fa-list-check"></i> Ver lista de chequeo
+                        </button>
+                    </div>
+
+                    <h2 class="sidebar-heading">Índice del curso</h2>
+                    <nav id="course-index-list" class="index-list">
+                        </nav>
+                     <button class="btn btn-outline btn-full-width" id="add-section-index-btn">
+                        <i class="fas fa-plus"></i> Añadir Sección
+                     </button>
+                </div>
+            </aside>
+
+            <main class="main-content-panel">
+                <div id="sections-editor-container">
+                    </div>
+                 <button class="btn btn-primary" id="add-section-main-btn" style="margin-top: 1rem;">
+                     <i class="fas fa-plus"></i> Añadir Sección
+                 </button>
+            </main>
+
+            <aside class="sidebar params-sidebar">
+                 <div class="sidebar-sticky-content">
+                    <h2 class="sidebar-heading">Parámetros del curso</h2>
+                    <form id="course-params-form" class="params-form">
+                        <div class="form-group">
+                            <label for="param-hours">Horas certificadas</label>
+                            <input type="number" id="param-hours" name="hours" value="0" class="input-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="param-thumbnail">Imagen de miniatura (URL)</label>
+                            <input type="text" id="param-thumbnail" name="thumbnail" placeholder="https://..." class="input-control">
+                        </div>
+                        <div class="form-group">
+                             <label for="param-cover">Imagen de portada (URL)</label>
+                            <input type="text" id="param-cover" name="coverImage" placeholder="https://..." class="input-control">
+                        </div>
+                        <div class="form-group">
+                             <label for="param-desc">Descripción del curso</label>
+                            <textarea id="param-desc" name="description" rows="4" class="textarea-control"></textarea>
+                        </div>
+                         <div class="form-group">
+                            <label for="param-cats">Categorías (separadas por coma)</label>
+                            <input type="text" id="param-cats" name="categories" class="input-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="param-status">Estado</label>
+                            <select id="param-status" name="status" class="select-control">
+                                <option value="borrador">Borrador</option>
+                                <option value="revision">En revisión</option>
+                                <option value="aprobado">Aprobado</option>
+                            </select>
+                        </div>
+                         <div class="form-group">
+                            <label for="param-author">Autor</label>
+                            <input type="text" id="param-author" name="author" class="input-control">
+                        </div>
+                    </form>
+                 </div>
+            </aside>
+        </div>
+
+        <div id="checklist-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Lista de chequeo</h2>
+                    <button id="close-checklist-btn" class="modal-close-btn">&times;</button>
+                </div>
+                <div id="checklist-content" class="modal-body">
+                    <p>Progreso: <strong id="modal-completion-percentage">0%</strong></p>
+                    <p>Estado: <span id="modal-completion-status">Incompleto</span></p>
+                    <ul id="modal-checklist-items">
+                        </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

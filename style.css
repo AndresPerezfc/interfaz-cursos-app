@@ -1,0 +1,522 @@
+/* === Estilos Generales === */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f8f9fa; /* Fondo general un poco más gris */
+    color: #212529; /* Texto principal oscuro */
+}
+
+.course-builder-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+/* === Header === */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    flex-shrink: 0; /* Evita que el header se encoja */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 1.25em;
+    color: #343a40;
+}
+
+/* === Layout Principal (3 Columnas) === */
+.main-layout {
+    display: flex;
+    flex-grow: 1; /* Ocupa el espacio restante */
+    overflow: hidden; /* Evita el desbordamiento general */
+}
+
+/* === Columnas Laterales (Sidebars) === */
+.sidebar {
+    flex-basis: 25%; /* Ancho base de las columnas laterales */
+    padding: 1.5rem;
+    overflow-y: auto; /* Permite scroll vertical si el contenido excede */
+    height: 100%; /* Ocupa la altura del contenedor padre */
+    box-sizing: border-box; /* Padding incluido en el ancho/alto */
+}
+.sidebar-sticky-content {
+    /* Si necesitas que el contenido dentro del sidebar tenga un comportamiento sticky */
+}
+
+.index-sidebar {
+    border-right: 1px solid #dee2e6;
+    background-color: #ffffff; /* Fondo blanco para el índice */
+}
+
+.params-sidebar {
+    border-left: 1px solid #dee2e6;
+    background-color: #f8f9fa; /* Fondo ligeramente gris para parámetros */
+}
+
+.sidebar-heading {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    color: #495057;
+}
+.sidebar-heading:first-child {
+    margin-top: 0;
+}
+
+/* === Columna Central === */
+.main-content-panel {
+    flex-grow: 1; /* Ocupa el espacio central disponible */
+    padding: 1.5rem;
+    overflow-y: auto; /* Scroll vertical para el contenido principal */
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #e9ecef; /* Fondo diferente para el área principal */
+}
+
+/* === Botones (Estilo Base y Variantes) === */
+.btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none; /* Para enlaces con estilo de botón */
+    white-space: nowrap; /* Evitar que el texto del botón se divida */
+}
+
+.btn-primary {
+    background-color: #212529;
+    color: white;
+    
+}
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border-color: #6c757d;
+}
+.btn-secondary:hover {
+    background-color: #5c636a;
+    border-color: #565e64;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #212529;
+    border-color: #212529;
+}
+.btn-outline:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.btn-ghost {
+     background-color: transparent;
+     border-color: transparent;
+     color: #6c757d;
+     padding: 0.3rem 0.6rem; /* Más pequeño para acciones inline */
+}
+.btn-ghost:hover {
+    background-color: #f1f3f5;
+    color: #495057;
+}
+
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0.3rem;
+    font-size: 1.1em;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-icon:hover {
+    background-color: #e9ecef;
+    color: #0d6efd;
+}
+
+.btn-full-width {
+    width: 100%;
+    justify-content: center; /* Centrar contenido en botones anchos */
+}
+
+
+/* === Estilos Índice (Columna Izquierda) === */
+.progress-section {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+.progress-title {
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #495057;
+}
+.progress-percentage {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #212529;
+}
+
+.index-list {
+    margin-top: 1rem;
+    padding-left: 0; /* Quitar padding por defecto de nav/ul */
+    list-style: none;
+}
+.index-section {
+    margin-bottom: 1rem;
+}
+.index-section-title {
+    font-weight: 600;
+    font-size: 0.95em;
+    color: #343a40;
+    display: block; /* Para que ocupe su línea */
+    margin-bottom: 0.3rem;
+    cursor: pointer; /* Indicar que es clickeable */
+}
+.index-section-title:hover {
+    color: #0d6efd;
+}
+.index-lesson-list {
+    list-style: none;
+    padding-left: 1.2rem; /* Indentación para lecciones */
+    margin-top: 0.2rem;
+}
+.index-lesson-list li {
+    font-size: 0.85em;
+    color: #6c757d;
+    padding: 0.2rem 0;
+    cursor: pointer; /* Indicar clickeable */
+}
+.index-lesson-list li:hover {
+    color: #0b5ed7;
+}
+.index-lesson-list li.active { /* Estilo para lección activa */
+    font-weight: bold;
+    color: #212529;
+}
+
+/* === Estilos Editor Principal (Columna Central) === */
+.editor-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #dee2e6;
+}
+.card-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin: 0;
+}
+.card-actions {
+    display: flex;
+    gap: 0.3rem;
+}
+.card-content {
+    padding: 1.25rem;
+}
+.section-description {
+    font-size: 0.9em;
+    color: #6c757d;
+    margin-bottom: 1rem;
+}
+.editor-lesson-list {
+    list-style: none;
+    padding-left: 0; /* Sin indentación base, se maneja en item */
+    margin-top: 1rem;
+}
+.editor-lesson-item {
+    border: 1px solid #e9ecef; /* Borde suave */
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    background-color: #f8f9fa; /* Fondo ligeramente distinto */
+}
+.lesson-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.lesson-item-title {
+    font-weight: 500;
+    color: #343a40;
+}
+.lesson-item-actions {
+    display: flex;
+    gap: 0.2rem;
+}
+.add-content-btn {
+    font-size: 0.85em;
+    margin-top: 0.5rem; /* Espacio sobre el botón de contenido */
+    color: #212529;
+}
+
+/* === Estilos Parámetros (Columna Derecha) === */
+.params-form .form-group {
+    margin-bottom: 1rem;
+}
+.params-form label {
+    display: block;
+    font-size: 0.85em;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: #495057;
+}
+.input-control,
+.textarea-control,
+.select-control {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 0.9em;
+    box-sizing: border-box; /* Para que padding no afecte ancho total */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input-control:focus,
+.textarea-control:focus,
+.select-control:focus {
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+.textarea-control {
+    resize: vertical; /* Permitir redimensionar verticalmente */
+    min-height: 80px;
+}
+
+/* === Estilos Modal (Checklist) === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté por encima */
+}
+.modal-content {
+    background-color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.25em;
+}
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #6c757d;
+    cursor: pointer;
+    line-height: 1; /* Ajuste para centrar mejor el '×' */
+}
+.modal-close-btn:hover {
+     color: #343a40;
+}
+.modal-body {
+    /* Estilos para el contenido del modal */
+    font-size: 0.9em;
+}
+
+#modal-checklist-items {
+    list-style: none; /* O 'disc' si prefieres viñetas */
+    padding-left: 0; /* O ajusta si usas viñetas */
+    margin-top: 1rem;
+}
+#modal-checklist-items li {
+     padding: 0.3rem 0;
+     border-bottom: 1px dashed #e9ecef;
+}
+#modal-checklist-items li:last-child {
+     border-bottom: none;
+}
+.checklist-item-done {
+    color: #198754; /* Verde para completado */
+    text-decoration: line-through;
+}
+.checklist-item-pending {
+     color: #dc3545; /* Rojo para pendiente */
+}
+
+/* === Estilos de Edición Inline (Similar a antes) === */
+[contenteditable="true"] {
+    background-color: #e8f0fe;
+    outline: 2px solid #0d6efd;
+    padding: 0.2rem;
+    border-radius: 3px;
+    display: inline-block; /* Para que el fondo/borde se ajuste */
+}
+
+
+/* === Estilos Cabecera Actualizados === */
+.main-header {
+    /* ... (mantener estilos existentes) ... */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem; /* Espacio entre botones y perfil */
+}
+
+/* === NUEVO: Estilos Perfil de Usuario === */
+.user-profile-container {
+    position: relative; /* Necesario para posicionar el dropdown */
+}
+
+.user-profile-button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.user-profile-button:hover,
+.user-profile-button[aria-expanded="true"] { /* Estilo al pasar el ratón o si está abierto */
+    background-color: #e9ecef; /* Fondo gris claro suave */
+}
+
+.user-avatar {
+    width: 32px; /* Tamaño del avatar */
+    height: 32px;
+    border-radius: 50%; /* Hacerlo circular */
+    margin-right: 0.6rem;
+    object-fit: cover; /* Asegura que la imagen cubra sin deformarse */
+    border: 1px solid #dee2e6; /* Borde sutil */
+}
+
+.user-name {
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #343a40;
+    margin-right: 0.4rem;
+}
+
+.dropdown-arrow {
+    font-size: 0.7em;
+    color: #6c757d;
+    transition: transform 0.2s ease;
+}
+
+.user-profile-button[aria-expanded="true"] .dropdown-arrow {
+     transform: rotate(180deg); /* Gira la flecha cuando está abierto */
+}
+
+
+/* === NUEVO: Estilos Menú Desplegable === */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px); /* Posición justo debajo del botón + pequeño espacio */
+    right: 0; /* Alineado a la derecha del contenedor */
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0; /* Padding vertical, sin padding horizontal para que los items ocupen todo */
+    min-width: 180px; /* Ancho mínimo del menú */
+    z-index: 1010; /* Asegura que esté por encima de otros elementos */
+    display: none; /* Oculto por defecto */
+}
+
+.dropdown-menu.show { /* Clase para mostrar el menú */
+    display: block;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: flex; /* Para alinear icono y texto */
+    align-items: center;
+    gap: 0.8rem; /* Espacio entre icono y texto */
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9em;
+    color: #343a40;
+    text-decoration: none;
+    white-space: nowrap; /* Evitar que el texto se divida */
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-menu li a i {
+    width: 16px; /* Ancho fijo para iconos para alineación */
+    text-align: center;
+    color: #6c757d; /* Color gris para iconos */
+}
+
+
+.dropdown-menu li a:hover {
+    background-color: #f8f9fa; /* Fondo suave al pasar el ratón */
+    color: #212529;
+}
+
+.dropdown-menu hr {
+    border: none;
+    border-top: 1px solid #e9ecef; /* Línea separadora */
+    margin: 0.4rem 0;
+}
